@@ -1,0 +1,3 @@
+
+
+[![CircleCI](https://circleci.com/gh/Jkadhuwa/portfolio-backend.svg?style=svg)](https://circleci.com/gh/Jkadhuwa/portfolio-backend) [![Test Coverage](https://api.codeclimate.com/v1/badges/7bb196ebb53c5209f8f1/test_coverage)](https://codeclimate.com/github/Jkadhuwa/portfolio-backend/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/7bb196ebb53c5209f8f1/maintainability)](https://codeclimate.com/github/Jkadhuwa/portfolio-backend/maintainability)
