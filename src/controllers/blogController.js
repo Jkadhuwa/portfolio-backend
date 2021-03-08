@@ -11,3 +11,15 @@ export const addNewBlog = async(req, res) => {
         blog
     })
 }
+
+export const getAllBlogs = async(req, res) => {
+    const blogs = await blogService.findAllBlogs();
+    if(!blogs.length){
+         return res.status(200).json({status: 'success', message: "No Blogs found at the moment."});
+    }
+
+    return res.status(200).json({
+        status: "success",
+        blogs
+    });
+};

@@ -16,6 +16,10 @@ class BlogService{
 
  }
 
+ async findAllBlogs(){
+    return await Blog.find();
+ }
+
 }
 
 export const blogService = new BlogService();
