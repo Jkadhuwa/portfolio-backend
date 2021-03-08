@@ -1,5 +1,6 @@
 import express from 'express';
 import userRouter from './usersRouter.js';
+import blogRouter from './blogsRouter.js';
 import {userLogin} from '../controllers/userController.js'
 import Validator from '../middlewares/validation.js'
 
@@ -10,5 +11,6 @@ router.get('/', (req, res) => {
 });
 router.post('/login', Validator.loginValidator, userLogin);
 router.use('/users', userRouter);
+router.use('/blogs', blogRouter);
 
 export default router;
