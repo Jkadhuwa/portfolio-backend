@@ -83,34 +83,4 @@ it('Should throw an error if password is wrong', async () => {
     expect(response.body.username).toBe("jkadhuwa");
 });
  });
-
- describe('Test Blog creation function', () => {
-      it('Should create a new blog ', async () => {
-       const response = await request(app)
-      .post('/api/v1/blogs')
-      .send({
-       title:"MERN STACK",
-       body:`Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-      });
-      expect(response.status).toBe(201);
-      expect(response.body.status).toBe("success");
-      });
-
-      it('Shouldreturn an erro if block with the same title exist', async () => {
-       const response = await request(app)
-      .post('/api/v1/blogs')
-      .send({
-       title:"MERN STACK",
-       body:`Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-      });
-      expect(response.status).toBe(409);
-      expect(response.body.status).toBe("error");
-      })
-
- });
-  
 });
