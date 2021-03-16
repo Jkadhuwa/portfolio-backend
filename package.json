@@ -7,7 +7,6 @@
   "author": "Jkadhuwa",
   "license": "MIT",
   "private": false,
-  "type": "module",
   "scripts": {
     "start": "node ./build/index.js",
     "build-clean": "rm -d -fR ./build",
