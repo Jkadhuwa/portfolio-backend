@@ -35,8 +35,36 @@ jobs:
             ./cc-test-reporter before-build
             yarn run test
             ./cc-test-reporter after-build --exit-code $?
+
+  deploy_staging:
+    docker:
+      - image: arvindr226/alpine-ssh
+    steps:
+      - checkout
+      - run:
+         name: Deploy over ssh
+         command: ssh circleci@128.199.10.244 "./deploy_api_staging.sh"
+          
+  deploy_production:
+    docker:
+      - image: arvindr226/alpine-ssh
+    steps:
+      - checkout
+      - run:
+         name: Deploy over ssh
+         command: ssh circleci@128.199.10.244 "./deploy_api_production.sh"
   
 workflows:
   build:
     jobs:
       - build
+      - deploy_staging:
+         requires:
+           - build
+         filters:
+           branches:
+            only: develop
+      - deploy_production:
+         filters:
+            branches:
+              only: main
