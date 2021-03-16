@@ -45,7 +45,7 @@ jobs:
           fingerprints: [01:e1:20:3b:58:ff:01:16:95:83:9f:00:53:05:2c:7a]
       - run:
          name: Deploy over ssh
-         command: ssh -oStrictHostKeyChecking=no -v  circleci@128.199.10.244 "./deploy_api_staging.sh"
+         command: ssh -oStrictHostKeyChecking=no -v  www-data@128.199.10.244 "./deploy_api_staging.sh"
           
   deploy_production:
     docker:
@@ -57,7 +57,7 @@ jobs:
       - run:
          name: Deploy over ssh
         
-         command: ssh -oStrictHostKeyChecking=no -v  circleci@128.199.10.244 "./deploy_api_production.sh"
+         command: ssh -oStrictHostKeyChecking=no -v  www-data@128.199.10.244 "./deploy_api_production.sh"
   
 workflows:
   build:

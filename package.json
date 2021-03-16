@@ -4,9 +4,13 @@
   "description": "Backend of Musinda Kadhuwa portfolio website",
   "main": "index.js",
   "repository": "https://github.com/Jkadhuwa/portfolio-backend",
-  "author": "Jkadhuwa",
+  "author": {
+    "name": "Jkadhuwa",
+    "email": "justinemsinda@gmail.com"
+  },
   "license": "MIT",
   "private": false,
+  "type": "commonjs",
   "scripts": {
     "start": "node ./build/index.js",
     "build-clean": "rm -d -fR ./build",

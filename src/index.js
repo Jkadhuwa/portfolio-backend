@@ -7,7 +7,7 @@ import logger from './config/logging.js';
 
 dotenv.config();
 logger();
-const PORT = process.env.PORT ? PORT : 5000;
+const PORT = process.env.PORT;
 
 
 const uriPROD = process.env.ATLAS_URI_PROD;
