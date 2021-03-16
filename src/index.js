@@ -10,14 +10,12 @@ logger();
 const PORT = process.env.PORT ? PORT : 5000;
 
 
-const uriProd = process.env.ATLAS_URI_PROD;
+const uriPROD = process.env.ATLAS_URI_PROD;
 const uriDEV = process.env.ATLAS_URI_DEV;
-const uriTEST = process.env.ATLAS_URI_TEST;
+
 const environment = process.env.NODE_ENV;
 let uri = ''
-if(environment === 'test'){
- uri = uriTEST;
-}else if(environment === 'production') {
+if(environment === 'production') {
 uri = uriPROD;
 }
 else{
