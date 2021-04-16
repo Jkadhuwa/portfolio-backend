@@ -40,7 +40,7 @@ export default {
 
     createBlogValidator(req, res, next){
         const newBlogSchema = Joi.object({
-            title: Joi.string().min(3).max(30).required(),
+            title: Joi.string().min(3).max(200).required(),
             body: Joi.string().min(100).required(),
         });
         const {error} = newBlogSchema.validate(req.body);

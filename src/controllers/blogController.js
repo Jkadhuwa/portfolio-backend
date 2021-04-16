@@ -10,7 +10,7 @@ export const addNewBlog = async(req, res) => {
         message: 'Blog created successfully',
         blog
     })
-}
+};
 
 export const getAllBlogs = async(req, res) => {
     const blogs = await blogService.findAllBlogs();
@@ -23,3 +23,16 @@ export const getAllBlogs = async(req, res) => {
         blogs
     });
 };
+
+export const getSingleBlog = async (req, res) => {
+    const {id} = req.params;
+    const blog = await blogService.getBlogById(id);
+    if(!blog) {
+        return res.status(404).json({status: 'error',  message: 'Sorry! The requested article was not found.'});
+       
+    }
+    res.status(200).json({
+        status: "success",
+        blog
+    }); 
+}
