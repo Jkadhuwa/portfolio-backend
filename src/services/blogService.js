@@ -21,7 +21,12 @@ class BlogService{
  }
 
  async getBlogById (id) {
-   return await Blog.findById(id);
+   try {
+    return await Blog.findById(id); 
+   } catch (error) {
+     return false
+   }
+   
 }
 }
 export const blogService = new BlogService();

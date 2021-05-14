@@ -28,8 +28,7 @@ export const getSingleBlog = async (req, res) => {
     const {id} = req.params;
     const blog = await blogService.getBlogById(id);
     if(!blog) {
-        return res.status(404).json({status: 'error',  message: 'Sorry! The requested article was not found.'});
-       
+        return res.status(200).json({status: 'error',  message: 'Sorry! The requested blog was not found.'});
     }
     res.status(200).json({
         status: "success",

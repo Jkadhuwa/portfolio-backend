@@ -1,0 +1,28 @@
+version: "2"
+checks:
+  file-lines:
+    enabled: true
+    config:
+      threshold: 250
+  method-count:
+    enabled: true
+    config:
+      threshold: 20
+  method-lines:
+    enabled: true
+    config:
+      threshold: 250
+  similar-code:
+    enabled: false
+  identical-code:
+    enabled: false
+plugins:
+ eslint:
+  enabled: true
+exclude_patterns:
+- "node_modules/"
+- ".nyc_output"
+- "coverage"
+- "./src/*/__test__/*"
+- "./src/*/*.test.*"
+- ".circleci"
