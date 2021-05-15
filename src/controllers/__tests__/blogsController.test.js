@@ -75,4 +75,28 @@ describe('Test Blog creation function', () => {
 
  });
 
+ describe('Test getBlogById', () => {
+   let id;
+   beforeAll(async () => {
+    const res = await request(app)
+    .get('/api/v1/blogs');
+    id = res.body.blogs[0]._id;
+   });
+   it('Should return a blog with the supplied id', async () => {
+    const response = await request(app)
+    .get(`/api/v1/blogs/${id}`);
+    expect(response.status).toBe(200);
+    expect(response.body.blog.title).toBe('MERN STACK');
+   });
+
+   it('Should return an error if blog is not found', async () => {
+    const response = await request(app)
+    .get('/api/v1/blogs/60462caba2fd5b5989589a97');
+    expect(response.status).toBe(404);
+    expect(response.body.message).toBe('Sorry! The requested article was not found.');
+   });
+
+  
+ })
+
 });

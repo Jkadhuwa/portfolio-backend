@@ -38,8 +38,4 @@ mongoose.connect(uri,connectionParams)
     })
     .catch( (err) => {
         winston.error(`Error connecting to the database. \n${err}`);
- })
-
-
-
-
+ });

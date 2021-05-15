@@ -56,3 +56,18 @@ describe('Validation tests', () => {
     });
 
 });
+
+describe('Test Create Project Validation', () => {
+  it('Should return an error if name is not provided', async (done) => {
+    const response = await request(app)
+  .post('/api/v1/projects')
+  .send({
+   name:"",
+   description:"To be honest I feel they pull the person you think",
+  });
+  expect(response.status).toBe(400);
+  expect(response.body.error).toBe("name is not allowed to be empty");
+  done();
+  });
+
+ })

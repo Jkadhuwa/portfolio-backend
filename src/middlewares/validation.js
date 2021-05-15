@@ -40,7 +40,7 @@ export default {
 
     createBlogValidator(req, res, next){
         const newBlogSchema = Joi.object({
-            title: Joi.string().min(3).max(30).required(),
+            title: Joi.string().min(3).max(200).required(),
             body: Joi.string().min(100).required(),
         });
         const {error} = newBlogSchema.validate(req.body);
@@ -52,5 +52,21 @@ export default {
         }
         next();
 
+    },
+
+    createNewproject(req, res, next) {
+        const newProjectSchema = Joi.object({
+            name: Joi.string().min(15).max(300).required(),
+            description: Joi.string().min(100).max(1000).required(),
+            projectCategory: Joi.number().min(0).max(3).required()
+        })
+        const {error} = newProjectSchema.validate(req.body);
+        if(error){
+        
+         return res.status(400).json({
+              error: error.details[0].message.replace(/\\|(")/g, ''),
+         });
+        }
+        next();
     }
 }

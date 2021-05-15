@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "private": false,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "start": "node ./build/index.js",
     "build-clean": "rm -d -fR ./build",
